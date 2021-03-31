@@ -711,6 +711,7 @@ router.get('/textmaker/game', async (req, res, next) => {
         }
 })
 
+
 router.get('/textmaker/senja', async (req, res, next) => {
         var theme = req.query.theme,
              text = req.query.text,
@@ -1448,6 +1449,27 @@ router.get('/wikipedia', async (req, res, next) => {
         if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
 
        fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/wiki?keyword=${search}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/pinterest', async (req, res, next) => {
+        var apikeyInput = req.query.apikey,
+            search = req.query.search
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'irwans') return res.json(loghandler.invalidKey)
+        if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
+
+       fetch(encodeURI(`https://api.fdci.se/sosmed/rep.php?gambar=${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
