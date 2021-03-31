@@ -6,6 +6,7 @@ var { color } = require('./lib/color.js')
 
 var mainrouter = require('./routes/main'),
     apirouter = require('./routes/api')
+    docrouter = require('./routes/doc')
 
 var app = express()
 app.enable('trust proxy');
@@ -16,6 +17,7 @@ app.use(express.static("public"))
 
 app.use('/', mainrouter)
 app.use('/api', apirouter)
+app.use('/doc', docrouter)
 
 app.listen(PORT, () => {
     console.log(color("Server running on port " + PORT,'green'))
