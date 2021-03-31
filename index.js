@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8080 || 5000 || 3000
 var { color } = require('./lib/color.js')
 
 var mainrouter = require('./routes/main'),
-    apirouter = require('./routes/api')
+    apirouter = require('./routes/api'),
     docrouter = require('./routes/doc')
 
 var app = express()
