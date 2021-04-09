@@ -1865,7 +1865,7 @@ router.get('/waifu', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'irwans') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://arugaz.herokuapp.com/api/waifu`))
+       fetch(encodeURI(`https://api.fdci.se/sosmed/rep.php?gambar=waifu`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1887,7 +1887,7 @@ router.get('/pinterest', async (req, res, next) => {
 	if(apikeyInput != 'irwans') return res.json(loghandler.invalidKey)
         if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
 
-       fetch(encodeURI(`https://api.fdci.se/sosmed/rep.php?gambar=${search}`))
+       fetch(encodeURI(`${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -2281,12 +2281,12 @@ router.get('/anime/kusonime', async (req, res, next) => {
 
 router.get('/loli', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
-	    search = req.query.search
+            search = req.query.search
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'irwans') return res.json(loghandler.invalidKey)
-	if(!search) return res.json({ status : false, creator : `${creator}`})
-       fetch(encodeURI(`https://api.fdci.se/rep.php?gambar=loli`))
+
+       fetch(encodeURI(`https://api.fdci.se/sosmed/rep.php?gambar=loli`))
         .then(response => response.json())
         .then(data => {
         var result = data;
