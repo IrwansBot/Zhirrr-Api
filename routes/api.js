@@ -1900,7 +1900,7 @@ router.get('/pinterest', async (req, res, next) => {
 })
 })
 
-router.get('/artikata', async (req, res, next) => {
+router.get('/artinama', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
             kata = req.query.kata
             
